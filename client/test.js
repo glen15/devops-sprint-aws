@@ -4,7 +4,7 @@ const expect = require('chai').expect
 require('dotenv').config();
 
 
-describe('test1', () => {
+describe('http - EC2와 S3 설정을 확인합니다.', () => {
   it('EC2 연결이 되었다면, 서버의 응답으로 "Hello World"를 받아야 합니다.', async () => {
     let res = await axios.get(`${process.env.REACT_APP_API_URL}`)
     expect(res.data).to.be.eql('Hello World')
@@ -16,8 +16,9 @@ describe('test1', () => {
     expect(title).to.be.eql(true)
   })
 
-  it('test', async () => {
+  it('EC2와 S3 사이의 환경설정을 올바르게 설정해야 합니다.', async () => {
     let result = await axios.get(`https://yeoraebucket.s3.ap-northeast-2.amazonaws.com/static/js/2.2e1a1952.chunk.js`)
-    console.log(result.data.)
+    let ec2url = result.data.includes(`${process.env.REACT_APP_API_URL}`)
+    expect(ec2url).to.be.eql(true)
   })
 })
