@@ -19,7 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha test-client.js",
+    "test1": "mocha ./test/http-test.js",
+    "test2": "mocha ./test/https-test.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
